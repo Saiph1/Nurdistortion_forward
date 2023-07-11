@@ -53,15 +53,15 @@ def main(args):
     for j in range(end):
         if (j)%10 != 0 :
             continue
-        print(f"Creating image {int(100*j/6238)}%/100%")
+        print(f"Creating image {int(100*j/6238)}%/100% ")
         # compute the integration area
         result2, _ = spi.quad(simulated_func, j, j+10) if j < int(end/10)*10 else spi.quad(simulated_func, j, end)
         scale_factor = (300)/result2 if j < int(end/10)*10 else (30*(end-j))/result2
-        print("scale_factor ",scale_factor)
+        # print("scale_factor ",scale_factor)
         # scale_factor = scale_factor*2
         subregion = (int(j),0,int(j+10), 1024)
         # Crop the subregion from the original image
-        cropped_image = cv_img[:, subregion[0]:subregion[2]] if j!= 6230 else cv_img[:, j:]
+        cropped_image = cv_img[:, subregion[0]:subregion[2]] if j < int(end/10)*10 else cv_img[:, j:]
         # Calculate the new width and height after downsampling
         # Define the scale factor for downsampling
         new_width = int(cropped_image.shape[1]*scale_factor)
