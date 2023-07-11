@@ -74,7 +74,7 @@ def main(args):
 
     # Resize the image to original size
     resized_img = cv2.resize(cv_img2, (cv_img.shape[1], cv_img.shape[0]), interpolation=cv2.INTER_LINEAR)
-    cv2.imwrite("./result_original.png", cv_img2)
+    cv2.imwrite("./result.png", cv_img2)
     cv2.imwrite("./result_unscale.png", resized_img)
     print("Image stored at ./result.png and ./result_rescaled.png")
 
