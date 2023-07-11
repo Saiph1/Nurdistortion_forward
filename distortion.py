@@ -27,8 +27,10 @@ def main(args):
     print("Finish loading.")
     # Rescale the time so it fits the image dimension
     time = time - 0.1
-    time = time * 62440
+    # Below should be time * img_width*10
+    time = time * 62380
     y_tens = np.zeros(104858) +30
+    print("Displaying reference dynamics, press q to continue.")
     plt.plot(time, angular, color='blue')
     plt.plot(time, y_tens, color='red')
     plt.xlabel('time')
