@@ -1,7 +1,7 @@
 Install all the required packages: 
 
 ```
-pip install -r requirement.txt
+pip install -r requirements.txt
 ```
 
 Run the code with: 
